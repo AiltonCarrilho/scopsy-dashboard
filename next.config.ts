@@ -1,23 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Configuração para subpath /lab
+  // Subpath /lab — todas as rotas ficam sob /lab/*
   basePath: '/lab',
 
-  // Asset prefix para servir assets do subpath correto
-  assetPrefix: '/lab',
-
-  // Variáveis de ambiente públicas
+  // Variaveis de ambiente publicas
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
   },
 
-  // Otimizações
+  // Otimizacoes
   compress: true,
   poweredByHeader: false,
-
-  // Required for static export
-  output: 'export',
   images: {
     unoptimized: true,
   },
