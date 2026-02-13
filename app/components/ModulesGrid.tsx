@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Zap, MessageSquare, Brain, Layers, FileText, TrendingUp, Target, Clock, Lock, Activity, GitBranch } from 'lucide-react';
 
 interface ModulesGridProps {
@@ -22,22 +21,7 @@ export default function ModulesGrid({ user, onOpenPremiumModal }: ModulesGridPro
                 <a href="/desafios.html" className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-2 hover:shadow-xl">
                     <div className="mb-6 flex items-start justify-between">
                         <div className="h-16 w-16 transition-transform group-hover:scale-110 group-hover:rotate-6">
-                            <svg width="68" height="68" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#8c52ff" />
-                                        <stop offset="100%" stopColor="#00c2ff" />
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="50" cy="38" r="18" stroke="url(#grad1)" strokeWidth="4" />
-                                <path d="M35 38 Q50 28, 65 38" stroke="url(#grad1)" strokeWidth="3" fill="none" />
-                                <circle cx="50" cy="38" r="8" fill="url(#grad1)" />
-                                <g opacity="0.6">
-                                    <circle cx="28" cy="25" r="3" fill="url(#grad1)" />
-                                    <circle cx="72" cy="28" r="4" fill="url(#grad1)" />
-                                    <circle cx="65" cy="60" r="2.5" fill="url(#grad1)" />
-                                </g>
-                            </svg>
+                            <img src="/lab/icons/desafios.png" alt="Desafios Clínicos" width={68} height={68} className="object-contain" />
                         </div>
                         <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#008CE2]">Interativo</span>
                     </div>
@@ -62,18 +46,7 @@ export default function ModulesGrid({ user, onOpenPremiumModal }: ModulesGridPro
                 <a href="/conceituacao.html" className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-2 hover:shadow-xl">
                     <div className="mb-6 flex items-start justify-between">
                         <div className="h-16 w-16 transition-transform group-hover:scale-110 group-hover:rotate-6">
-                            <svg width="68" height="68" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#8c52ff" />
-                                        <stop offset="100%" stopColor="#00c2ff" />
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="50" cy="35" r="25" stroke="url(#grad4)" strokeWidth="3" fill="none" />
-                                <path d="M35 35 L50 50 L65 35" stroke="url(#grad4)" strokeWidth="3" fill="none" />
-                                <path d="M30 45 L50 60 L70 45" stroke="url(#grad4)" strokeWidth="3" fill="none" />
-                                <circle cx="50" cy="35" r="8" fill="url(#grad4)" />
-                            </svg>
+                            <img src="/lab/icons/conceituacao.png" alt="Conceituação Cognitiva" width={68} height={68} className="object-contain" />
                         </div>
                         <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#008CE2]">TCC Profundo</span>
                     </div>
@@ -98,20 +71,7 @@ export default function ModulesGrid({ user, onOpenPremiumModal }: ModulesGridPro
                 <a href="/diagnostic.html" className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-2 hover:shadow-xl">
                     <div className="mb-6 flex items-start justify-between">
                         <div className="h-16 w-16 transition-transform group-hover:scale-110 group-hover:rotate-6">
-                            <svg width="68" height="68" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#8c52ff" />
-                                        <stop offset="100%" stopColor="#00c2ff" />
-                                    </linearGradient>
-                                </defs>
-                                <circle cx="50" cy="50" r="35" stroke="url(#grad2)" strokeWidth="5" fill="none" />
-                                <circle cx="50" cy="50" r="25" stroke="url(#grad2)" strokeWidth="4" fill="none" />
-                                <circle cx="50" cy="50" r="15" stroke="url(#grad2)" strokeWidth="3" fill="none" />
-                                <circle cx="50" cy="50" r="6" fill="url(#grad2)" />
-                                <path d="M50 15 L50 8 M50 92 L50 85 M15 50 L8 50 M92 50 L85 50" stroke="url(#grad2)" strokeWidth="4" strokeLinecap="round" />
-                                <circle cx="70" cy="25" r="3" fill="url(#grad2)" opacity="0.7" />
-                            </svg>
+                            <img src="/lab/icons/radar.png" alt="Radar Diagnóstico" width={68} height={68} className="object-contain" />
                         </div>
                         <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#008CE2]">Repetição Espaçada</span>
                     </div>
@@ -156,23 +116,7 @@ function JornadaContent() {
         <>
             <div className="mb-6 flex items-start justify-between">
                 <div className="h-16 w-16 transition-transform group-hover:scale-110 group-hover:rotate-6">
-                    <svg width="68" height="68" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#8c52ff" />
-                                <stop offset="100%" stopColor="#00c2ff" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="20" cy="70" r="8" fill="url(#grad3)" />
-                        <circle cx="50" cy="45" r="10" fill="url(#grad3)" />
-                        <circle cx="80" cy="30" r="12" fill="url(#grad3)" />
-                        <path d="M20 70 Q35 58, 50 45 T80 30" stroke="url(#grad3)" strokeWidth="4" fill="none" strokeDasharray="8 6" />
-                        <polygon points="80,20 90,30 80,40" fill="url(#grad3)" transform="rotate(30 80 30)" />
-                        <g opacity="0.6">
-                            <circle cx="35" cy="30" r="3" fill="url(#grad3)" />
-                            <circle cx="65" cy="65" r="4" fill="url(#grad3)" />
-                        </g>
-                    </svg>
+                    <img src="/lab/icons/jornada.png" alt="Jornada Clínica" width={68} height={68} className="object-contain" />
                 </div>
                 <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-600">12 Sessões</span>
             </div>
