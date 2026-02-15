@@ -15,13 +15,30 @@ interface Mission {
 
 export default function MissionsSection() {
     const [timeLeft, setTimeLeft] = useState('--:--');
-    // Mock missions for now
-    const missions: Mission[] = [
-        { id: '1', description: 'Complete 3 diagnósticos no Radar', progress: 1, target: 3, is_completed: false, reward_cognits: 50 },
-        { id: '2', description: 'Acesse a plataforma por 3 dias seguidos', progress: 3, target: 3, is_completed: true, reward_cognits: 100 },
-    ];
+    const [missions, setMissions] = useState<Mission[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // Fetch real missions from API
+        const token = localStorage.getItem('token');
+        if (token) {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+            fetch(`${apiUrl}/api/missions`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (data?.success && data.missions) {
+                        setMissions(data.missions);
+                    }
+                })
+                .catch(e => console.error('Erro ao carregar missões:', e))
+                .finally(() => setLoading(false));
+        } else {
+            setLoading(false);
+        }
+
+        // Timer countdown
         function updateTimer() {
             const now = new Date();
             const tomorrow = new Date();
@@ -40,6 +57,7 @@ export default function MissionsSection() {
         return () => clearInterval(interval);
     }, []);
 
+    if (loading) return null;
     if (missions.length === 0) return null;
 
     return (
