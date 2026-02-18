@@ -33,16 +33,21 @@ export default function DashboardPage() {
     }
 
     // 2. Validate Token & Fetch Latest Data
-    // 2. Validate Token & Fetch Latest Data
     const fetchData = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'; // Fallback for safety
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+        const TIMEOUT_MS = 8000;
 
         // B. Load User Stats (Progress Summary)
         try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
+
           const resStats = await fetch(`${apiUrl}/api/progress/summary`, {
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: { 'Authorization': `Bearer ${token}` },
+            signal: controller.signal
           });
+          clearTimeout(timeoutId);
 
           if (resStats.ok) {
             const dataStats = await resStats.json();
@@ -58,9 +63,14 @@ export default function DashboardPage() {
 
         // C. Load Freshness
         try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
+
           const resFreshness = await fetch(`${apiUrl}/api/freshness/status`, {
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: { 'Authorization': `Bearer ${token}` },
+            signal: controller.signal
           });
+          clearTimeout(timeoutId);
 
           if (resFreshness.ok) {
             const dataFreshness = await resFreshness.json();
